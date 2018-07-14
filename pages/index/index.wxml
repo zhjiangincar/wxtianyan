@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+            <view class="weui-label">天眼设备号</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" type="number" name="containerSn" value='{{containerSn}}'placeholder="请扫描设备号"  placeholder-class="phcolor"/>
+        </view>
+        <view class="weui-cell__ft">
+            <view class="saoma" bindtap="saoma"><text class="iconfont icon-xiangji" style="font-size: 40rpx;;color:#fff"></text> 扫码</view> 
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">集装箱编号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" name="deviceNum" value='{{deviceNum}}' placeholder="请输入集装箱编号" placeholder-class="phcolor"/>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input"  wx:if="{{pincodeflag == 1}}">
+        <view class="weui-cell__hd">
+            <view class="weui-label">授权码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" name="pincode" type="number" value='{{pincode}}' placeholder="请输入授权码" placeholder-class="phcolor"/>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button  formType="submit" class='submit'>提交绑定</button>
+    </view>
+  </form>
+  <view class='cell'>
+    <text bindtap="phonecallevent">联系客服</text> 
+  </view>
+</view>
